@@ -14,7 +14,7 @@ if [[ $LOGIN =~ "Never" ]]; then
 
 		sudo mv /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.$(date +%Y%m%d%T)
 
-		sudo cat > /etc/netplan/00-installer-config.yaml << "EOF"
+		sudo cat > 00-installer-config.yaml << "EOF"
 		network:
 		  ethernets:
 		    ens33:
@@ -28,7 +28,7 @@ if [[ $LOGIN =~ "Never" ]]; then
 		        addresses: [$PRIMARY_DNS_ADDRESS]
 		  version: 2
 EOF
-
+		sudo mv 00-installer-config.yaml /etc/netplan/00-installer-config.yaml
 		sudo netplan apply
 	fi
 fi
