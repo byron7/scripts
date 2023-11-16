@@ -12,7 +12,7 @@ if [[ $LOGIN =~ "Never" ]]; then
 
 		sudo hostnamectl set-hostname "$NEW_HOSTNAME"
 
-		sudo mv /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.$(date +%Y%m%d)
+		sudo mv /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.$(date +%Y%m%d%T)
 
 		sudo cat > /etc/netplan/00-installer-config.yaml << "EOF"
 		network:
