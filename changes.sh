@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /bin/bash
 LOGIN=$(lastlog | grep $USER | awk '{print $2}')
 
 if [[ $LOGIN =~ "Never" ]]; then
@@ -14,7 +14,7 @@ if [[ $LOGIN =~ "Never" ]]; then
 
 		sudo mv /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.$(date +%Y%m%d)
 
-		cat > /etc/netplan/00-installer-config.yaml << "EOF"
+		sudo cat > /etc/netplan/00-installer-config.yaml << "EOF"
 		network:
 		  ethernets:
 		    ens33:
