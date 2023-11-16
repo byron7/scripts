@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-LOGIN = lastlog | grep $USER | awk '{print $2}'
+LOGIN=$(lastlog | grep $USER | awk '{print $2}')
 
 if [[ $LOGIN =~ "Never" ]]; then
 	read -p "Desea cambiar el hostname y la IP del servidor ahora [s/n]: " RESPUESTA
