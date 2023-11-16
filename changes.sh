@@ -15,18 +15,18 @@ if [[ $LOGIN =~ "Never" ]]; then
 		sudo mv /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.$(date +%Y%m%d%T)
 
 		sudo cat > 00-installer-config.yaml << "EOF"
-		network:
-		  ethernets:
-		    ens33:
-		      dhcp4: false
-		      addresses:"
-		       - [$IP_ADDRESS]
-		      routes:"
-		       - to: default"
-		         via: $GATEWAY_ADDRESS
-		      nameservers:
-		        addresses: [$PRIMARY_DNS_ADDRESS]
-		  version: 2
+network:
+  ethernets:
+    ens33:
+      dhcp4: false
+      addresses:"
+       - [$IP_ADDRESS]
+      routes:"
+       - to: default"
+         via: $GATEWAY_ADDRESS
+      nameservers:
+        addresses: [$PRIMARY_DNS_ADDRESS]
+  version: 2
 EOF
 		sudo mv 00-installer-config.yaml /etc/netplan/00-installer-config.yaml
 		sudo netplan apply
